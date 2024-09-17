@@ -63,7 +63,7 @@ graph = Neo4jGraph(neo4j_url, neo4j_user, neo4j_password)
 graph.refresh_schema()
 
 llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=gemini_api, temperature=0)
-chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True)
+chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True, allow_dangerous_requests=True)
         
 @app.route('/brand', methods=['POST'])
 def get_brand_details():
@@ -155,5 +155,5 @@ scheduler.start()
 
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
