@@ -108,6 +108,7 @@ import re
 import google.generativeai as genai
 
 model = genai.GenerativeModel('gemini-pro')
+genai.configure(api_key=GOOGLE_API_KEY)
 @app.route('/genai', methods=['POST'])
 def generate_recommendations():
     try:
