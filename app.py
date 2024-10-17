@@ -6,10 +6,12 @@ from langchain_community.document_loaders import PyPDFLoader
 from langchain_google_genai import ChatGoogleGenerativeAI
 from flask_cors import CORS
 
+
 app = Flask(__name__)
 CORS(app)
 
-GOOGLE_API_KEY = "AIzaSyC5agUKvQR7gBuutdV0FSo0tpz2MRn8uL4"
+GOOGLE_API_KEY = "AIzaSyAT8SR1HP4HDjZYDAwfur6qW1ppOEGkpSM"
+
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
@@ -57,12 +59,12 @@ neo4j_url = "neo4j+s://babf3722.databases.neo4j.io"
 neo4j_user = "neo4j"
 neo4j_password ="6qkA7VWxWKgfO5tJ7Lm2yKew2hVd3X7GBp_5F-93aNI"
 
-gemini_api = "AIzaSyC5agUKvQR7gBuutdV0FSo0tpz2MRn8uL4"
+# gemini_api = "AIzaSyC5agUKvQR7gBuutdV0FSo0tpz2MRn8uL4"
 
 graph = Neo4jGraph(neo4j_url, neo4j_user, neo4j_password)
 graph.refresh_schema()
 
-llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=gemini_api, temperature=0)
+llm = ChatGoogleGenerativeAI(model="gemini-pro", google_api_key=GOOGLE_API_KEY, temperature=0)
 chain = GraphCypherQAChain.from_llm(graph=graph, llm=llm, verbose=True, allow_dangerous_requests=True)
         
 @app.route('/brand', methods=['POST'])
@@ -131,7 +133,7 @@ def generate_recommendations():
     
 
 import os    
-GOOGLE_API_KEY = "AIzaSyCm-ow0oiLoVb2BrnGzrj6klQtYpjIsfk0"  # Replace with your actual API key
+# GOOGLE_API_KEY = "AIzaSyCm-ow0oiLoVb2BrnGzrj6klQtYpjIsfk0"  # Replace with your actual API key
 genai.configure(api_key=GOOGLE_API_KEY)
 
 @app.route('/genai-image', methods=['POST'])
@@ -205,6 +207,6 @@ scheduler.start()
 
 
 
-# if __name__ == '__main__':
-#     app.run(debug=True, port=5000)
+if __name__ == '__main__':
+    app.run(debug=True, port=5000)
 
