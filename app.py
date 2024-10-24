@@ -10,7 +10,11 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app)
 
-GOOGLE_API_KEY = "AIzaSyAT8SR1HP4HDjZYDAwfur6qW1ppOEGkpSM"
+#shruti patil new key : AIzaSyCebs219oM_IaRqkm09N0yJ9LhGK7nJ8gg
+
+#shruti patil old key : AIzaSyAT8SR1HP4HDjZYDAwfur6qW1ppOEGkpSM
+
+GOOGLE_API_KEY = "AIzaSyCebs219oM_IaRqkm09N0yJ9LhGK7nJ8gg"
 
 
 @app.route('/upload', methods=['POST'])
