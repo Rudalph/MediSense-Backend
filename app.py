@@ -14,9 +14,11 @@ CORS(app)
 
 #shruti patil old key : AIzaSyAT8SR1HP4HDjZYDAwfur6qW1ppOEGkpSM
 
+#shruti patil newest key: AIzaSyC8kMmf1IFE9I-vmbht1ItMChXvCy9Z2fY
+
 #Rudalph Gonsalves new api key: AIzaSyDNr-WITS3OgCnROMjVQk0jUblTPsCxVXs
 
-GOOGLE_API_KEY = "AIzaSyDNr-WITS3OgCnROMjVQk0jUblTPsCxVXs"
+GOOGLE_API_KEY = "AIzaSyC8kMmf1IFE9I-vmbht1ItMChXvCy9Z2fY"
 
 
 @app.route('/upload', methods=['POST'])
